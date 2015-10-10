@@ -1,0 +1,10 @@
+#!/bin/bash
+
+/usr/sbin/sshd
+
+mysqld_safe --defaults-file=/etc/my.cnf
+
+SCHEMA='/var/www/schema.sql'
+if [ -f $SCHEMA ]; then
+   mysql -u root < $SCHEMA
+fi
