@@ -1,5 +1,5 @@
 FROM centos:centos6
-MAINTAINER Nemanja Andrejevic <nemanja.andrejevic@rovicom.net>
+MAINTAINER Nemanja Andrejevic <andrejevicnemanja@gmail.com>
 
 # Install MySQL 5.6
 RUN yum -y update
@@ -9,15 +9,14 @@ RUN rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm
 RUN yum clean all
 RUN yum -y install mysql-community-server
 
-ADD mysql-init /usr/bin/mysql-init
-RUN chmod +x /usr/bin/mysql-init
-RUN /usr/bin/mysql-init
-
-ADD mysql-start /usr/bin/mysql-start
-RUN chmod +x /usr/bin/mysql-start
-
 ADD my.cnf /etc/my.cnf
 
-EXPOSE 22 3306
+VOLUME /var/lib/mysql
 
-ENTRYPOINT ["/usr/bin/mysql-start"]
+RUN mkdir -p /docker
+COPY docker-entrypoint.sh /docker/entrypoint.sh
+RUN chmod +x /docker/entrypoint.sh
+ENTRYPOINT ["/docker/entrypoint.sh"]
+
+EXPOSE 3306
+CMD ["mysqld"]

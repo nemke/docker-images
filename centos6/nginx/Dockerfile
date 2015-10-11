@@ -1,5 +1,5 @@
 FROM centos:centos6
-MAINTAINER Nemanja Andrejevic <nemanja.andrejevic@rovicom.net>
+MAINTAINER Nemanja Andrejevic <andrejevicnemanja@gmail.com>
 
 # Install nginx
 RUN yum -y update
