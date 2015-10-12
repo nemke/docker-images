@@ -72,7 +72,7 @@ if [ "$1" = 'mysqld' ]; then
 		fi
 
 		if [ "$MYSQL_SCHEMA" ]; then
-			"${mysql[@]}" < "$MYSQL_SCHEMA" 
+			"${mysql[@]}" $MYSQL_DATABASE < "$MYSQL_SCHEMA" 
 		fi
 
 		if ! kill -s TERM "$pid" || ! wait "$pid"; then
