@@ -42,8 +42,6 @@ if [ "$1" = 'mysqld' ]; then
 		fi
 
 		"${mysql[@]}" <<-EOSQL
-			-- What's done in this file shouldn't be replicated
-			--  or products like mysql-fabric won't work
 			SET @@SESSION.SQL_LOG_BIN=0;
 			DELETE FROM mysql.user ;
 			CREATE USER 'root'@'%' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}' ;
@@ -72,7 +70,7 @@ if [ "$1" = 'mysqld' ]; then
 		fi
 
 		if [ "$MYSQL_SCHEMA" ]; then
-			"${mysql[@]}" "$MYSQL_DATABASE" < "$MYSQL_SCHEMA" 
+			mysql -uroot -p${MYSQL_ROOT_PASSWORD} "$MYSQL_DATABASE" < /var/www/"$MYSQL_SCHEMA"
 		fi
 
 		if ! kill -s TERM "$pid" || ! wait "$pid"; then

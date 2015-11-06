@@ -2,10 +2,9 @@ FROM centos6/base
 MAINTAINER Nemanja Andrejevic <andrejevicnemanja@gmail.com>
 
 # Install MySQL 5.6
-RUN rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm
-
-RUN yum clean all
-RUN yum -y install mysql-community-server
+RUN rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm && \
+	yum clean all && \
+	yum -y install mysql-community-server
 
 ADD my.cnf /etc/my.cnf
 
