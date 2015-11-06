@@ -1,10 +1,9 @@
-FROM centos:centos6
+FROM centos6/base
 MAINTAINER Nemanja Andrejevic <andrejevicnemanja@gmail.com>
 
 # Install nginx
-RUN yum -y update
 ADD nginx.repo /etc/yum.repos.d/nginx.repo
-RUN yum -y install nginx telnet
+RUN yum -y install nginx telnet mc
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
