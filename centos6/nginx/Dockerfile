@@ -3,7 +3,7 @@ MAINTAINER Nemanja Andrejevic <andrejevicnemanja@gmail.com>
 
 # Install nginx
 ADD nginx.repo /etc/yum.repos.d/nginx.repo
-RUN yum -y install nginx telnet mc
+RUN yum -y install nginx telnet mc && yum clean all
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
@@ -12,9 +12,6 @@ RUN ln -sf /dev/stderr /var/log/nginx/error.log
 RUN mkdir -p /etc/service/nginx
 ADD start.sh /etc/service/nginx/run
 RUN chmod +x /etc/service/nginx/run
-
-# Clean up YUM when done.
-RUN yum clean all
 
 CMD ["/etc/service/nginx/run"]
 
