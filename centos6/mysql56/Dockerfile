@@ -8,12 +8,11 @@ RUN rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm &
 
 ADD my.cnf /etc/my.cnf
 
-VOLUME /var/lib/mysql
+VOLUME ["/var/lib/mysql"]
 
-RUN mkdir -p /docker
-COPY docker-entrypoint.sh /docker/entrypoint.sh
-RUN chmod +x /docker/entrypoint.sh
-ENTRYPOINT ["/docker/entrypoint.sh"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 3306
 CMD ["mysqld"]
