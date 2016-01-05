@@ -3,7 +3,7 @@ MAINTAINER Nemanja Andrejevic <andrejevicnemanja@gmail.com>
 
 # Install nginx
 ADD nginx.repo /etc/yum.repos.d/nginx.repo
-RUN yum -y install nginx telnet mc && yum clean all
+RUN yum -y install nginx && yum clean all
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN ln -sf /dev/stdout /var/log/nginx/access.log

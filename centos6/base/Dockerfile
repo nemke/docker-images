@@ -3,8 +3,11 @@ MAINTAINER Nemanja Andrejevic <andrejevicnemanja@gmail.com>
 
 # Update OS and installs basic tools
 RUN yum -y update && \
-	yum -y install wget curl telnet mc yum-utils && \
-	yum clean all
+	yum -y install wget curl telnet mc yum-utils net-tools python-setuptools && \
+	yum clean all && \
+	easy_install supervisor
 
 RUN mkdir -p /root/.mc
 COPY mc_ini /root/.mc/ini
+
+ENV TERM xterm

@@ -1,9 +1,9 @@
 FROM centos6/base
 MAINTAINER Nemanja Andrejevic <andrejevicnemanja@gmail.com>
 
-RUN yum-config-manager --add-repo http://rpms.famillecollet.com/enterprise/remi.repo
-RUN yum clean all
-RUN yum -y --enablerepo=remi-php56 --enablerepo=remi install php-fpm php-mbstring php-imap php-soap gd-last php-gd ImageMagick php-xml php-mysqlnd php-process php-cli php-pear php-bcmath php-intl 
+RUN yum-config-manager --add-repo http://rpms.famillecollet.com/enterprise/remi.repo && \
+yum clean all && \
+yum -y --enablerepo=remi-php56 --enablerepo=remi install php-fpm php-mbstring php-imap php-soap gd-last php-gd ImageMagick php-xml php-mysqlnd php-process php-cli php-pear php-bcmath php-intl 
 
 # Configure PHP FPM
 RUN echo 'cgi.fix_pathinfo = 0;' >> /etc/php.ini
