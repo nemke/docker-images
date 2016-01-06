@@ -20,6 +20,9 @@
 	cd centos6/base && docker build -t centos6/base .
 </code>
 
+<p>
+	After that you can compile any of images you need:
+</p>
 <ul>
 	<li>
 		<p>
