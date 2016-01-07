@@ -1,8 +1,6 @@
 FROM centos6/base
 MAINTAINER Nemanja Andrejevic <andrejevicnemanja@gmail.com>
 
-VOLUME ["/var/www"]
-
 # Install Nginx
 ADD nginx.repo /etc/yum.repos.d/nginx.repo
 RUN yum -y install nginx && \
