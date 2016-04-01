@@ -12,7 +12,7 @@ ln -sf /dev/stderr /var/log/nginx/error.log
 
 # Installing PHP
 RUN yum-config-manager --add-repo http://rpms.famillecollet.com/enterprise/remi.repo && \
-yum -y --enablerepo=remi-php56 --enablerepo=remi install php-fpm php-mbstring php-imap php-soap gd-last php-gd ImageMagick php-xml php-mysqlnd php-process php-cli php-pear php-bcmath php-intl && \
+yum -y --enablerepo=remi-php56 --enablerepo=remi install php-fpm php-mbstring php-imap php-soap gd-last php-gd ImageMagick php-xml php-mysqlnd php-process php-cli php-pear php-bcmath php-mcrypt php-intl && \
 yum clean all && \
 chown root:nginx -R /var/lib/php/session && \
 chown root:nginx -R /var/lib/php/wsdlcache 
