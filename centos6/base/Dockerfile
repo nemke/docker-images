@@ -7,7 +7,8 @@ RUN yum -y update && \
 	yum clean all && \
 	easy_install supervisor && \
 	wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm && \
-	rpm -ivh epel-release-6-8.noarch.rpm
+	rpm -ivh epel-release-6-8.noarch.rpm && \
+	yum-config-manager --enable epel
 
 RUN mkdir -p /root/.mc
 COPY mc_ini /root/.mc/ini
