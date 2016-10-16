@@ -86,4 +86,4 @@ if [ "$1" = 'mysqld' ]; then
 	chown -R mysql:mysql "$DATADIR"
 fi
 
-exec "$@"
+exec "$@ --user=mysql"
