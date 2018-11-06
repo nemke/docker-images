@@ -1,4 +1,4 @@
-FROM centos6/base
+FROM nemke/centos7-base
 MAINTAINER Nemanja Andrejevic <andrejevicnemanja@gmail.com>
 
 # Install MySQL 5.6
