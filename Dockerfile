@@ -1,8 +1,8 @@
 FROM nemke/centos7-base
 MAINTAINER Nemanja Andrejevic <andrejevicnemanja@gmail.com>
 
-# Install MySQL 5.6
-RUN rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm && \
+# Install MySQL
+RUN rpm -Uvh https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm && \
 	yum clean all && \
 	yum -y install mysql-community-server
 
