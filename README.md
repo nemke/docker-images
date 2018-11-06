@@ -1,11 +1,8 @@
-<h1>
-	Centos 7 base image
-</h1>
-
 <h2>
-	Requirements:
+	Software:
 </h2>
 <ul>
-	<li>docker</li>
-	<li>docker-compose</li>
+	<li>CentOS 7</li>
+	<li>Nginx latest</li>
+	<li>Php 7.2</li>
 </ul>
