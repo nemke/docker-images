@@ -19,6 +19,7 @@ chown root:nginx -R /var/lib/php/wsdlcache
 
 # Configuring PHP FPM
 RUN echo 'cgi.fix_pathinfo = 0;' >> /etc/php.ini && sed -i "s/;date.timezone =.*/date.timezone = UTC/" /etc/php.ini
+RUN mkdir -p /run/php-fpm/
 ADD www.conf /etc/php-fpm.d/www.conf
 
 # Add Composer
