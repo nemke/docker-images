@@ -1,4 +1,4 @@
-FROM centos7/base
+FROM nemke/centos7-base
 MAINTAINER Nemanja Andrejevic <andrejevicnemanja@gmail.com>
 
 # Install Nginx
