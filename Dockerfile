@@ -1,4 +1,4 @@
-FROM centos7/base
+FROM nemke/docker-images:base
 MAINTAINER Nemanja Andrejevic <andrejevicnemanja@gmail.com>
 
 # Installing PHP
