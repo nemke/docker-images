@@ -6,4 +6,6 @@ RUN curl -sL https://rpm.nodesource.com/setup_10.x | bash -
 RUN yum -y install nodejs && \
 yum clean all
 
+EXPOSE 8080
+
 CMD ["node"]
