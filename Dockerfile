@@ -8,7 +8,8 @@ yum clean all
 
 # Configuring Nginx
 RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
-ln -sf /dev/stderr /var/log/nginx/error.log
+ln -sf /dev/stderr /var/log/nginx/error.log && \
+rm -rf /etc/nginx/conf.d/default.conf
 
 # Installing PHP
 RUN yum-config-manager --add-repo http://rpms.famillecollet.com/enterprise/remi.repo && \
