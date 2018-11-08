@@ -8,4 +8,4 @@ yum clean all
 
 EXPOSE 8080
 
-CMD ["node"]
+CMD ["node", "param1", "param2", "param3"]
