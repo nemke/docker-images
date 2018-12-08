@@ -13,7 +13,7 @@ rm -rf /etc/nginx/conf.d/default.conf
 
 # Installing PHP
 RUN yum-config-manager --add-repo http://rpms.famillecollet.com/enterprise/remi.repo && \
-yum -y --enablerepo=remi-php72 --enablerepo=remi install php-fpm php-mbstring php-soap gd-last php-gd ImageMagick php-xml php-mysqlnd php-process php-cli php-pear php-bcmath php-mcrypt php-intl php-pecl-zip php-opcache php-gmp php-xdebug && \
+yum -y --enablerepo=remi-php72 --enablerepo=remi install php-fpm php-mbstring php-soap gd-last php-gd ImageMagick php-xml php-mysqlnd php-process php-cli php-pear php-bcmath php-mcrypt php-intl php-pecl-zip php-opcache php-gmp php-xdebug php-amqp && \
 yum clean all && \
 chown root:nginx -R /var/lib/php/session && \
 chown root:nginx -R /var/lib/php/wsdlcache
